@@ -2,18 +2,27 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>KAVYA Discount Coin</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KAVYA Lucky Discount Coin</title>
 
 <style>
+
 body{
-    margin:0;
-    font-family:Arial;
+    font-family: Arial, sans-serif;
     text-align:center;
     background:#f5f5f5;
+    margin:0;
+    padding:20px;
 }
 
 .container{
-    margin-top:50px;
+    max-width:600px;
+    margin:auto;
+    margin-top:30px;
+}
+
+h1{
+    color:#0057b8;
 }
 
 .coin{
@@ -22,7 +31,7 @@ body{
     border-radius:50%;
     cursor:pointer;
     transition:transform 2s;
-    box-shadow:0 0 20px rgba(0,0,0,.2);
+    box-shadow:0 0 20px rgba(0,0,0,.3);
 }
 
 .flip{
@@ -32,15 +41,29 @@ body{
 button{
     padding:12px 25px;
     font-size:18px;
-    margin-top:20px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    margin:10px;
+}
+
+.flipBtn{
+    background:#0057b8;
+    color:white;
+}
+
+.playBtn{
+    background:#28a745;
+    color:white;
 }
 
 #result{
     margin-top:30px;
-    font-size:36px;
+    font-size:32px;
     font-weight:bold;
-    color:#0057b8;
+    color:#d35400;
 }
+
 </style>
 </head>
 
@@ -48,14 +71,18 @@ button{
 
 <div class="container">
 
-<h2>🎉 KAVYA Lucky Discount Coin 🎉</h2>
+<h1>🎉 KAVYA Lucky Discount Coin 🎉</h1>
 
 <img src="Coin.png" id="coin" class="coin">
 
-<br>
+<br><br>
 
-<button onclick="flipCoin()">
+<button class="flipBtn" onclick="flipCoin()">
 Flip Coin
+</button>
+
+<button class="playBtn" onclick="playAgain()">
+Play Again
 </button>
 
 <div id="result"></div>
@@ -66,25 +93,32 @@ Flip Coin
 
 function flipCoin(){
 
-    let coin=document.getElementById("coin");
+    let coin = document.getElementById("coin");
+
+    coin.style.pointerEvents = "none";
 
     coin.classList.add("flip");
 
     setTimeout(function(){
 
-        let discount=Math.floor(Math.random()*10)+1;
+        let discount = Math.floor(Math.random() * 10) + 1;
 
-        document.getElementById("result").innerHTML=
-        "🎁 Congratulations! You Won "+discount+"% Discount";
-
-        localStorage.setItem(
-            "discountPlayed",
-            discount
-        );
+        document.getElementById("result").innerHTML =
+        "🎁 Congratulations! You Won " +
+        discount +
+        "% Discount";
 
         coin.classList.remove("flip");
 
+        coin.style.pointerEvents = "auto";
+
     },2000);
+}
+
+function playAgain(){
+
+    document.getElementById("result").innerHTML = "";
+
 }
 
 </script>
