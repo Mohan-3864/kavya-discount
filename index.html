@@ -66,11 +66,6 @@ Flip Coin
 
 function flipCoin(){
 
-    if(localStorage.getItem("discountPlayed")){
-        alert("You already claimed your discount.");
-        return;
-    }
-
     let coin=document.getElementById("coin");
 
     coin.classList.add("flip");
