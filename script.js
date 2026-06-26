@@ -3,7 +3,7 @@
 // Replace this after deploying Apps Script
 // ==========================================
 
-const SCRIPT_URL = "PASTE_YOUR_WEB_APP_URL_HERE";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzyMOCyLGxzlH4zAob4S28Ob8D6AWQ-ra9XiNAZGbDHIQtJUMKQzjAygv4C40hmQw3TFQ/exec";
 
 let currentBillNo = "";
 let currentReward = 0;
