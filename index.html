@@ -1,127 +1,110 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>KAVYA Lucky Discount Coin</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAI KAPEES INFRACON Pvt Ltd - Lucky Coin</title>
 
-<style>
-
-body{
-    font-family: Arial, sans-serif;
-    text-align:center;
-    background:#f5f5f5;
-    margin:0;
-    padding:20px;
-}
-
-.container{
-    max-width:600px;
-    margin:auto;
-    margin-top:30px;
-}
-
-h1{
-    color:#0057b8;
-}
-
-.coin{
-    width:250px;
-    height:250px;
-    border-radius:50%;
-    cursor:pointer;
-    transition:transform 2s;
-    box-shadow:0 0 20px rgba(0,0,0,.3);
-}
-
-.flip{
-    transform:rotateY(2160deg);
-}
-
-button{
-    padding:12px 25px;
-    font-size:18px;
-    border:none;
-    border-radius:8px;
-    cursor:pointer;
-    margin:10px;
-}
-
-.flipBtn{
-    background:#0057b8;
-    color:white;
-}
-
-.playBtn{
-    background:#28a745;
-    color:white;
-}
-
-#result{
-    margin-top:30px;
-    font-size:32px;
-    font-weight:bold;
-    color:#d35400;
-}
-
-</style>
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="container">
+    <!-- ==========================
+         PAGE 1 - BILL NUMBER
+    =========================== -->
+    <div id="billPage" class="page active">
 
-<h1>🎉 KAVYA Lucky Discount Coin 🎉</h1>
+        <div class="container">
 
-<img src="Coin.png" id="coin" class="coin">
+            <h1>JAI KAPEES INFRACON Pvt Ltd</h1>
 
-<br><br>
+            <h2>🎉 Lucky Coin Contest 🎉</h2>
 
-<button class="flipBtn" onclick="flipCoin()">
-Flip Coin
-</button>
+            <div class="bill-box">
 
-<button class="playBtn" onclick="playAgain()">
-Play Again
-</button>
+                <label for="billNo">Enter Bill Number</label>
 
-<div id="result"></div>
+                <input
+                    type="text"
+                    id="billNo"
+                    placeholder="Enter Bill Number"
+                    autocomplete="off"
+                >
 
-</div>
+                <button id="continueBtn">
+                    Continue
+                </button>
 
-<script>
+            </div>
 
-function flipCoin(){
+            <p id="billMessage" class="message"></p>
 
-    let coin = document.getElementById("coin");
+        </div>
 
-    coin.style.pointerEvents = "none";
+    </div>
 
-    coin.classList.add("flip");
 
-    setTimeout(function(){
 
-        let discount = Math.floor(Math.random() * 10) + 1;
+    <!-- ==========================
+         PAGE 2 - LUCKY COIN
+    =========================== -->
 
-        document.getElementById("result").innerHTML =
-        "🎁 Congratulations! You Won " +
-        discount +
-        "% Discount";
+    <div id="coinPage" class="page">
 
-        coin.classList.remove("flip");
+        <div class="container">
 
-        coin.style.pointerEvents = "auto";
+            <h1>JAI KAPEES INFRACON Pvt Ltd</h1>
 
-    },2000);
-}
+            <h2>🎉 Lucky Coin 🎉</h2>
 
-function playAgain(){
+            <p class="bill-display">
+                Bill No :
+                <strong id="displayBillNo"></strong>
+            </p>
 
-    document.getElementById("result").innerHTML = "";
+            <img
+                src="Coin.png"
+                id="coin"
+                class="coin"
+                alt="Lucky Coin"
+            >
 
-}
+            <br><br>
 
-</script>
+            <button
+                id="flipBtn"
+                class="flipBtn">
+                Flip Coin
+            </button>
+
+            <button
+                id="nextBtn"
+                class="playBtn">
+                Next Person
+            </button>
+
+            <div id="result"></div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- Loading Overlay -->
+
+    <div id="loading" class="loading">
+
+        <div class="loader"></div>
+
+        <p>Please wait...</p>
+
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
 
 </body>
 </html>
